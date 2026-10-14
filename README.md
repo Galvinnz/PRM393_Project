@@ -22,6 +22,29 @@ Tài khoản có sẵn (trên màn Đăng nhập có nút điền nhanh):
 > Database là SQLite nằm trên máy, nên khách và chủ quán dùng chung 1 máy: đăng nhập khách để đặt hàng / nhắn tin,
 > đăng xuất rồi đăng nhập chủ quán để xử lý đơn / trả lời.
 
+### Chạy trên Chrome (web)
+
+```bash
+flutter run -d chrome                  # cách nhanh nhất: tự build và mở Chrome
+flutter build web --release            # hoặc build bản release -> build/web
+dart pub global activate dhttpd        # (1 lần) cài web server nhỏ
+dhttpd --path build/web --port 8080    # rồi mở http://localhost:8080
+```
+
+- `sqflite` không chạy trên web, nên khi `kIsWeb` app dùng `sqflite_common_ffi_web` (SQLite bản WebAssembly,
+  dữ liệu lưu trong IndexedDB của trình duyệt) — xem `main.dart`.
+- 2 file `web/sqlite3.wasm` và `web/sqflite_sw.js` được tạo bằng `dart run sqflite_common_ffi_web:setup`,
+  **phải commit cùng code** thì bản web mới chạy.
+- Dữ liệu trên web tách riêng với dữ liệu trên điện thoại.
+
+### Tài liệu (thư mục `docs/`)
+
+- `Technical_Report_MocCafe.docx`: báo cáo kỹ thuật (tiếng Anh, đủ 7 mục theo đề) — điền tên/MSSV rồi xuất PDF để nộp.
+- `Phan_cong_cong_viec_nhom.docx`: phân công 4 người (25% mỗi người), file cần đọc, câu hỏi hay gặp, kịch bản demo.
+- `On_tap_theo_vai_tro.docx`: ôn tập theo vai trò — kiến thức slide (ghi rõ Module/slide), code tương ứng, câu hỏi + đáp án gợi ý.
+- `diagrams/`: mỗi sơ đồ 1 file draw.io, mở bằng draw.io / diagrams.net để sửa hoặc xuất PNG/PDF:
+  `1_architecture.drawio`, `2_database_erd.drawio`, `3_order_status.drawio`, `4_ui_flow.drawio`.
+
 ## 2. Chức năng
 
 | # | Chức năng | Màn hình | Ghi chú |
@@ -37,6 +60,7 @@ Tài khoản có sẵn (trên màn Đăng nhập có nút điền nhanh):
 | 9 | Chat với quán | `shared/chat_screen` | Khách nhắn, chủ quán trả lời |
 | 10 | Trang quản lý đơn (chủ quán) | `admin/admin_orders_screen` | Lọc theo trạng thái, chuyển trạng thái → khách nhận thông báo |
 | + | Chế độ tối | `customer/profile_screen` | Lưu bằng SharedPreferences |
+| + | Chỉnh sửa thông tin cá nhân | `customer/edit_profile_screen` | Sửa họ tên, SĐT; đổi mật khẩu phải nhập đúng mật khẩu cũ; email không đổi |
 
 Luồng trạng thái đơn: `Chờ xác nhận → Đã xác nhận → Đang pha chế → Đang giao → Hoàn thành` (hoặc `Đã hủy` khi còn chờ xác nhận).
 
@@ -112,7 +136,7 @@ test/
 |--------|---------------|
 | M2-M3 Dart, OOP, async | Model + `factory fromMap`, enum `OrderStatus`, `Future`/`async`/`await`, Singleton `DatabaseHelper`, Repository pattern |
 | M4 UI Widgets | Scaffold, Card, ListTile, GridView, BottomNavigationBar, RadioListTile, CheckboxListTile, SwitchListTile, Badge, Theme + Dark mode |
-| M5 Navigation & State | Named routes, `push` / `pushReplacementNamed` / `pushNamedAndRemoveUntil`, Provider, `Consumer`/`watch`/`read` |
+| M5 Navigation & State | Named routes, `push` / `pushReplacementNamed` / `pushNamedAndRemoveUntil`, Provider (`context.watch` / `read` / `select`, `Selector`) |
 | M6 Responsive | `MediaQuery` (lưới 2/4 cột), `LayoutBuilder` (màn Cửa hàng), `SafeArea`, `Expanded`, `Wrap` |
 | M7 Forms | `Form` + `GlobalKey<FormState>`, validator, xác nhận mật khẩu, `AutovalidateMode.onUserInteraction`, ẩn/hiện mật khẩu, ẩn bàn phím |
 | M8 JSON / Service layer | `toMap()` / `fromMap()`, `FutureBuilder` (chi tiết đơn), xử lý loading / rỗng / lỗi |
@@ -130,6 +154,7 @@ test/
 | `RadioGroup` | Quản lý nhóm Radio (size, phương thức thanh toán) | Flutter 3.32+ bỏ `groupValue`/`onChanged` trên từng Radio |
 | Enum có thuộc tính (enhanced enum) | `OrderStatus('Chờ xác nhận', ...)`, `PaymentMethod` | Gom nhãn + mô tả vào 1 chỗ, có getter `next` |
 | SQLite transaction | Lưu đơn + các món cùng lúc | Lỗi giữa chừng thì không lưu dở dang |
+| `sqflite_common_ffi_web` | Chạy database SQLite trên Chrome (bản web) | `sqflite` không hỗ trợ web; gói này chạy SQLite dạng WebAssembly |
 
 ## 8. Kịch bản demo gợi ý (15 phút)
 

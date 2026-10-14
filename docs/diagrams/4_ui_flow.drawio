@@ -1,0 +1,136 @@
+<mxfile host="app.diagrams.net" agent="PRM393 Moc Cafe">
+  <diagram id="ui-flow" name="4. UI flow">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="8" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="u-title" value="Splash routes by saved session and role: customers get five tabs, the owner two" style="text;html=1;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="24" y="8" width="740" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="u-splash" value="Splash" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="24" y="56" width="96" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="u-login" value="Login" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="232" y="56" width="96" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="u-register" value="Register" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="440" y="56" width="104" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="u-role" value="Role?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="224" y="124" width="112" height="56" as="geometry" />
+        </mxCell>
+        <!-- customer home -->
+        <mxCell id="u-cust" value="Customer home: 5 tabs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=4;container=1;collapsible=0;align=left;verticalAlign=top;spacingLeft=12;spacingTop=4;fontStyle=1;fillColor=none;strokeColor=#999999;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="24" y="216" width="496" height="264" as="geometry" />
+        </mxCell>
+        <mxCell id="c-menu" value="Menu" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;" vertex="1" parent="u-cust">
+          <mxGeometry x="16" y="40" width="48" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="c-detail" value="Drink detail" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=12;" vertex="1" parent="u-cust">
+          <mxGeometry x="80" y="40" width="96" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="c-cart" value="Cart" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=12;" vertex="1" parent="u-cust">
+          <mxGeometry x="192" y="40" width="48" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="c-checkout" value="Checkout + pay" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=12;" vertex="1" parent="u-cust">
+          <mxGeometry x="256" y="40" width="108" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="c-placed" value="Order placed" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=12;" vertex="1" parent="u-cust">
+          <mxGeometry x="380" y="40" width="96" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="c-orders" value="Orders" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;" vertex="1" parent="u-cust">
+          <mxGeometry x="16" y="84" width="64" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="c-odetail" value="Order detail" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=12;" vertex="1" parent="u-cust">
+          <mxGeometry x="96" y="84" width="96" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="c-notif" value="Notifications" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;" vertex="1" parent="u-cust">
+          <mxGeometry x="16" y="128" width="104" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="c-store" value="Store (map)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;" vertex="1" parent="u-cust">
+          <mxGeometry x="16" y="172" width="80" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="c-chat" value="Chat" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=12;" vertex="1" parent="u-cust">
+          <mxGeometry x="112" y="172" width="56" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="c-account" value="Account" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;" vertex="1" parent="u-cust">
+          <mxGeometry x="16" y="216" width="72" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="c-edit" value="Edit profile" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=12;" vertex="1" parent="u-cust">
+          <mxGeometry x="104" y="216" width="88" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="c-logout-note" value="Log out returns to Login" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#555555;" vertex="1" parent="u-cust">
+          <mxGeometry x="200" y="216" width="170" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="ce-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="u-cust" source="c-menu" target="c-detail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="u-cust" source="c-detail" target="c-cart">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="u-cust" source="c-cart" target="c-checkout">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="u-cust" source="c-checkout" target="c-placed">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="u-cust" source="c-orders" target="c-odetail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="u-cust" source="c-store" target="c-chat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ce-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="u-cust" source="c-account" target="c-edit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- owner home -->
+        <mxCell id="u-owner" value="Owner home: 2 tabs" style="rounded=1;whiteSpace=wrap;html=1;arcSize=6;container=1;collapsible=0;align=left;verticalAlign=top;spacingLeft=12;spacingTop=4;fontStyle=1;fillColor=none;strokeColor=#999999;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="536" y="216" width="200" height="132" as="geometry" />
+        </mxCell>
+        <mxCell id="o-orders" value="Orders" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;" vertex="1" parent="u-owner">
+          <mxGeometry x="16" y="40" width="64" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="o-odetail" value="Order detail" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=12;" vertex="1" parent="u-owner">
+          <mxGeometry x="96" y="40" width="88" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="o-msg" value="Messages" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=12;" vertex="1" parent="u-owner">
+          <mxGeometry x="16" y="84" width="72" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="o-chat" value="Chat" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666666;fontSize=12;" vertex="1" parent="u-owner">
+          <mxGeometry x="104" y="84" width="56" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="oe-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="u-owner" source="o-orders" target="o-odetail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="oe-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;" edge="1" parent="u-owner" source="o-msg" target="o-chat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <!-- top-level navigation -->
+        <mxCell id="ue-1" value="no saved session" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;fontSize=11;labelBackgroundColor=#FFFFFF;verticalAlign=bottom;" edge="1" parent="1" source="u-splash" target="u-login">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue-2" value="sign up / back" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=block;startFill=1;endArrow=block;endFill=1;strokeColor=#666666;fontSize=11;labelBackgroundColor=#FFFFFF;verticalAlign=bottom;" edge="1" parent="1" source="u-login" target="u-register">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue-3" value="saved session" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;fontSize=11;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="u-splash" target="u-role">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue-4" value="logged in" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;fontSize=11;labelBackgroundColor=#FFFFFF;align=left;spacingLeft=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="u-login" target="u-role">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue-5" value="customer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;fontSize=11;labelBackgroundColor=#FFFFFF;align=left;spacingLeft=6;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.516;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="u-role" target="u-cust">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ue-6" value="owner" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;fontSize=11;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="u-role" target="u-owner">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="u-legend-box" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="24" y="496" width="20" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="u-legend" value="Blue box = bottom tab; white box = screen opened on top of it" style="text;html=1;align=left;verticalAlign=middle;fontSize=11;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="52" y="491" width="420" height="24" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

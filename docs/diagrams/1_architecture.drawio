@@ -1,0 +1,70 @@
+<mxfile host="app.diagrams.net" agent="PRM393 Moc Cafe">
+  <diagram id="architecture" name="1. Architecture">
+    <mxGraphModel dx="1000" dy="700" grid="1" gridSize="8" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="a-title" value="Screens never touch SQL: providers and repositories sit in between" style="text;html=1;fontSize=16;fontStyle=1;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="24" y="8" width="712" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="a-ui" value="&lt;b&gt;Screens and widgets (UI layer)&lt;/b&gt;&lt;br&gt;Customer: Menu, Drink detail, Cart, Checkout, Orders, Notifications, Store, Chat, Account&lt;br&gt;Shop owner: Orders, Order detail, Messages · Shared: Splash, Login, Register" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=12;spacingTop=6;fillColor=#FFFFFF;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="24" y="52" width="712" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="a-prov" value="&lt;b&gt;Providers (ChangeNotifier, one MultiProvider)&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;align=left;verticalAlign=top;spacingLeft=12;spacingTop=6;fillColor=#DAE8FC;strokeColor=#6C8EBF;strokeWidth=2;fontSize=13;container=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="24" y="184" width="712" height="88" as="geometry" />
+        </mxCell>
+        <mxCell id="a-p-auth" value="Auth" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6C8EBF;fontSize=12;" vertex="1" parent="a-prov">
+          <mxGeometry x="16" y="36" width="90" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="a-p-menu" value="Menu" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6C8EBF;fontSize=12;" vertex="1" parent="a-prov">
+          <mxGeometry x="114" y="36" width="90" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="a-p-cart" value="Cart" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6C8EBF;fontSize=12;" vertex="1" parent="a-prov">
+          <mxGeometry x="212" y="36" width="90" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="a-p-order" value="Order" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6C8EBF;fontSize=12;" vertex="1" parent="a-prov">
+          <mxGeometry x="310" y="36" width="90" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="a-p-notification" value="Notification" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6C8EBF;fontSize=12;" vertex="1" parent="a-prov">
+          <mxGeometry x="408" y="36" width="90" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="a-p-chat" value="Chat" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6C8EBF;fontSize=12;" vertex="1" parent="a-prov">
+          <mxGeometry x="506" y="36" width="90" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="a-p-theme" value="Theme" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6C8EBF;fontSize=12;" vertex="1" parent="a-prov">
+          <mxGeometry x="604" y="36" width="90" height="36" as="geometry" />
+        </mxCell>
+        <mxCell id="a-repo" value="&lt;b&gt;Repositories (SQL per table group)&lt;/b&gt;&lt;br&gt;User, Menu, Order, Chat, Notification" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;align=left;verticalAlign=middle;spacingLeft=12;fillColor=#FFFFFF;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="24" y="328" width="300" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="a-prefs" value="&lt;b&gt;SharedPreferences&lt;/b&gt;&lt;br&gt;Session user id, dark mode" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;align=left;verticalAlign=middle;spacingLeft=12;fillColor=#FFFFFF;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="340" y="328" width="190" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="a-notif" value="&lt;b&gt;NotificationService&lt;/b&gt;&lt;br&gt;System notifications" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;align=left;verticalAlign=middle;spacingLeft=12;fillColor=#FFFFFF;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="546" y="328" width="190" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="a-db" value="&lt;b&gt;DatabaseHelper (singleton)&lt;/b&gt;&lt;br&gt;SQLite cafe_app.db, 8 tables" style="rounded=1;whiteSpace=wrap;html=1;arcSize=12;align=left;verticalAlign=middle;spacingLeft=12;fillColor=#FFFFFF;strokeColor=#666666;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="24" y="432" width="300" height="64" as="geometry" />
+        </mxCell>
+        <mxCell id="a-e1" value="context.watch / read / select" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;fontSize=11;labelBackgroundColor=#FFFFFF;exitX=0.32;exitY=1;exitDx=0;exitDy=0;entryX=0.32;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="a-ui" target="a-prov">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-e2" value="notifyListeners() rebuilds UI" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;fontSize=11;labelBackgroundColor=#FFFFFF;exitX=0.7;exitY=0;exitDx=0;exitDy=0;entryX=0.7;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="a-prov" target="a-ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-e3" value="async calls" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;fontSize=11;labelBackgroundColor=#FFFFFF;exitX=0.21;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="a-prov" target="a-repo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-e4" value="Auth, Theme" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;fontSize=11;labelBackgroundColor=#FFFFFF;exitX=0.577;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="a-prov" target="a-prefs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-e5" value="Order" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;fontSize=11;labelBackgroundColor=#FFFFFF;exitX=0.867;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="a-prov" target="a-notif">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-e6" value="SQL" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;strokeColor=#666666;fontSize=11;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="a-repo" target="a-db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
