@@ -32,6 +32,17 @@ class UserRepository {
     return User.fromMap(rows.first);
   }
 
+  // Cập nhật họ tên, số điện thoại, mật khẩu (email dùng để đăng nhập nên không đổi)
+  Future<void> updateUser(User user) async {
+    final db = await _dbHelper.database;
+    await db.update(
+      'users',
+      {'name': user.name, 'phone': user.phone, 'password': user.password},
+      where: 'id = ?',
+      whereArgs: [user.id],
+    );
+  }
+
   Future<User?> getUserById(int id) async {
     final db = await _dbHelper.database;
     final rows = await db.query('users', where: 'id = ?', whereArgs: [id]);

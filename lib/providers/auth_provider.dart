@@ -32,6 +32,33 @@ class AuthProvider extends ChangeNotifier {
     return success ? null : 'Email này đã được sử dụng';
   }
 
+  // Sửa thông tin cá nhân. Muốn đổi mật khẩu thì truyền newPassword
+  // và phải nhập đúng mật khẩu hiện tại.
+  // Thành công trả về null, thất bại trả về câu báo lỗi.
+  Future<String?> updateProfile({
+    required String name,
+    required String phone,
+    String? currentPassword,
+    String? newPassword,
+  }) async {
+    final user = _currentUser;
+    if (user == null) return 'Bạn chưa đăng nhập';
+
+    if (newPassword != null && currentPassword != user.password) {
+      return 'Mật khẩu hiện tại không đúng';
+    }
+
+    final updated = user.copyWith(
+      name: name,
+      phone: phone,
+      password: newPassword, // null = giữ mật khẩu cũ
+    );
+    await _userRepo.updateUser(updated);
+    _currentUser = updated;
+    notifyListeners(); // màn Tài khoản tự hiện thông tin mới
+    return null;
+  }
+
   // Gọi ở SplashScreen: còn phiên đăng nhập thì vào thẳng app
   Future<bool> tryAutoLogin() async {
     final prefs = await SharedPreferences.getInstance();

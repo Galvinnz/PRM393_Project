@@ -20,6 +20,19 @@ class User {
 
   bool get isAdmin => role == roleAdmin;
 
+  // Tạo bản sao với vài thông tin mới (vì các trường là final).
+  // Email và vai trò không đổi.
+  User copyWith({String? name, String? phone, String? password}) {
+    return User(
+      id: id,
+      name: name ?? this.name,
+      email: email,
+      password: password ?? this.password,
+      phone: phone ?? this.phone,
+      role: role,
+    );
+  }
+
   // Chuyển object -> Map để lưu vào SQLite
   Map<String, dynamic> toMap() {
     return {

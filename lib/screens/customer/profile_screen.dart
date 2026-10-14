@@ -5,6 +5,7 @@ import '../../providers/theme_provider.dart';
 import '../../utils/constants.dart';
 import '../../utils/logout_helper.dart';
 import '../shared/chat_screen.dart';
+import 'edit_profile_screen.dart';
 
 // Tab Tài khoản: thông tin cá nhân, chế độ tối, đăng xuất
 class ProfileScreen extends StatelessWidget {
@@ -12,8 +13,8 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Dùng read: thông tin user không đổi trong suốt phiên đăng nhập
-    final user = context.read<AuthProvider>().currentUser;
+    // Dùng watch: sửa thông tin xong thì màn này tự cập nhật
+    final user = context.watch<AuthProvider>().currentUser;
     if (user == null) return const SizedBox.shrink(); // vừa đăng xuất
 
     final themeProvider = context.watch<ThemeProvider>();
@@ -44,6 +45,15 @@ class ProfileScreen extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           const Divider(),
+          ListTile(
+            leading: const Icon(Icons.edit),
+            title: const Text('Chỉnh sửa thông tin'),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => const EditProfileScreen()),
+            ),
+          ),
           ListTile(
             leading: const Icon(Icons.phone),
             title: const Text('Số điện thoại'),
