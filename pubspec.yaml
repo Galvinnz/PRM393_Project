@@ -42,6 +42,7 @@ dependencies:
   flutter_map: ^8.3.2
   latlong2: ^0.10.1
   url_launcher: ^6.3.3
+  sqflite_common_ffi_web: ^1.2.0
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +54,14 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+
+# Gói sqlite3 (đi kèm sqflite_common_ffi_web) mặc định nhúng thêm libsqlite3.so
+# (~1.6 MB mỗi kiến trúc CPU) vào APK. Android không dùng tới: sqflite dùng SQLite
+# của hệ điều hành, còn bản web dùng web/sqlite3.wasm -> tắt để APK nhẹ hơn.
+hooks:
+  user_defines:
+    sqlite3:
+      source: system
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

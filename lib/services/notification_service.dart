@@ -23,14 +23,23 @@ class NotificationService {
     }
   }
 
-  // Android 13+ phải xin quyền hiển thị thông báo (hiện hộp thoại hỏi người dùng)
+  // Xin quyền hiển thị thông báo (hiện hộp thoại hỏi người dùng):
+  // Android 13+ và trình duyệt web đều bắt buộc
   Future<void> requestPermission() async {
     try {
-      await _plugin
-          .resolvePlatformSpecificImplementation<
-            AndroidFlutterLocalNotificationsPlugin
-          >()
-          ?.requestNotificationsPermission();
+      if (kIsWeb) {
+        await _plugin
+            .resolvePlatformSpecificImplementation<
+              WebFlutterLocalNotificationsPlugin
+            >()
+            ?.requestNotificationsPermission();
+      } else {
+        await _plugin
+            .resolvePlatformSpecificImplementation<
+              AndroidFlutterLocalNotificationsPlugin
+            >()
+            ?.requestNotificationsPermission();
+      }
     } catch (e) {
       debugPrint('Không xin được quyền thông báo: $e');
     }
