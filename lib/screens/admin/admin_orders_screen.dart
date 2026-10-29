@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'admin_products_screen.dart';
+
 import 'admin_dashboard_screen.dart';
 
 import 'package:provider/provider.dart';
@@ -42,6 +44,24 @@ class _AdminOrdersScreenState extends State<AdminOrdersScreen> {
 
     return Column(
       children: [
+        Padding(
+          padding: const EdgeInsets.fromLTRB(12, 4, 12, 8),
+          child: Card(
+            child: ListTile(
+              leading: const Icon(Icons.inventory_2_outlined),
+              title: const Text('Quản lý sản phẩm'),
+              subtitle: const Text(
+                'Đồ uống, danh mục, topping, tình trạng bán',
+              ),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.of(context).push(
+                MaterialPageRoute<void>(
+                  builder: (_) => const AdminProductsScreen(),
+                ),
+              ),
+            ),
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.fromLTRB(12, 8, 12, 0),
           child: Card(
